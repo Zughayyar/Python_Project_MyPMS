@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_mypms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE'    : 'django.db.backends.mysql',
         'NAME'      : 'mypms_python_project',
-        'USER'      : 'anas',
-        'PASSWORD'  : 'AN@s1992',
+        'USER'      : 'prj_user',
+        'PASSWORD'  : '@Q123@w123',
         'HOST'      : '127.0.0.1',
         'PORT'      : '3306'
     }
