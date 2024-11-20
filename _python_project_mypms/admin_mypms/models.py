@@ -1,8 +1,6 @@
 from django.db import models
 import bcrypt, re # type: ignore
 
-
-
 class Department(models.Model):
     name = models.CharField(max_length=255)
     desc = models.TextField( default="No desription added!")
@@ -85,3 +83,24 @@ class Client(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = ClientManager()
 
+
+
+class ProjectManager(models.Manager):
+    def basic_validator(self, data):
+        errors = {}
+        if len(data['name']) < 3:
+            errors['name'] = "First Name should be at least 3 characters!"
+        if len(data['location']) < 3:
+            errors['location'] = "First Name should be at least 3 characters!"
+        if len(data['main_contractor']) < 3:
+            errors['main_contractor'] = "First Name should be at least 3 characters!"
+        return errors
+    
+class Project(models.Model):
+    name = models.CharField(max_length=255)
+    client = models.ForeignKey(Client,on_delete=models.DO_NOTHING,related_name="projects")
+    location = models.CharField(max_length=255)
+    main_contractor = models.CharField(max_length=255)
+    manager = models.ForeignKey(User,on_delete=models.DO_NOTHING,related_name="projects")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
