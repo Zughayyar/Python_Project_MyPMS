@@ -35,7 +35,8 @@ def create_user(data):
     User.objects.create(
         username = data['username'],
         name = data['name'],
-        password = hashed_pwd
+        password = hashed_pwd,
+        department = data['department']
     )
 
 def get_user_by_username(username):
