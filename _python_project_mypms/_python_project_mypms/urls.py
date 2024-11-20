@@ -17,5 +17,6 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('admin_mypms.urls'))
+    path('', include('admin_mypms.urls')),
+    path('', include('tree.urls'))
 ]
