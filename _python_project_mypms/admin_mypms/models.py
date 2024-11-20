@@ -1,6 +1,12 @@
 from django.db import models
 import bcrypt, re # type: ignore
 
+
+
+class Department(models.Model):
+    name = models.CharField(max_length=255)
+    desc = models.TextField( default="No desription added!")
+
 class UserManager(models.Manager):
     def basic_validator(self, data):
         errors = {}
@@ -15,9 +21,10 @@ class UserManager(models.Manager):
         return errors
 
 class User(models.Model):
-    username = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
-    password = models.CharField(max_length=255)
+    username = models.CharField(max_length=255, default="null")
+    name = models.CharField(max_length=255, default="null")
+    password = models.CharField(max_length=255, default="null")
+    department = models.ForeignKey(Department, on_delete=models.DO_NOTHING, related_name="users", default="null")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
@@ -76,3 +83,4 @@ class Client(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = ClientManager()
+
