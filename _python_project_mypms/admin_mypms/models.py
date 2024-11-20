@@ -1,10 +1,10 @@
 from django.db import models
 import bcrypt, re # type: ignore
+from datetime import date
 
-class Department(models.Model):
-    name = models.CharField(max_length=255)
-    desc = models.TextField( default="No desription added!")
-
+###########################################
+####### Validation Classes (Managers) #####
+###########################################
 class UserManager(models.Manager):
     def basic_validator(self, data):
         errors = {}
@@ -18,6 +18,38 @@ class UserManager(models.Manager):
             errors['password_match'] = "Password not match!"
         return errors
 
+class ClientManager(models.Manager):
+    def basic_validator(self, data):
+        errors = {}
+        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+        if len(data['company_name']) < 3:
+            errors['company_name'] = "First Name should be at least 3 characters!"
+        if len(data['contact_name']) < 3:
+            errors['contact_name'] = "First Name should be at least 3 characters!"
+        if len(data['phone_number']) < 10:
+            errors['phone_number'] = "First Name should be at least 10 numbers!"
+        if not EMAIL_REGEX.match(data['email']):
+            errors['email'] = "E-mail address should be valid!"
+        return errors
+
+class ProjectManager(models.Manager):
+    def basic_validator(self, data):
+        errors = {}
+        if len(data['name']) < 3:
+            errors['name'] = "First Name should be at least 3 characters!"
+        if len(data['location']) < 3:
+            errors['location'] = "First Name should be at least 3 characters!"
+        if len(data['main_contractor']) < 3:
+            errors['main_contractor'] = "First Name should be at least 3 characters!"
+        return errors
+
+###########################
+###### Table Classes ######
+###########################
+class Department(models.Model):
+    name = models.CharField(max_length=255)
+    desc = models.TextField( default="No desription added!")
+    
 class User(models.Model):
     username = models.CharField(max_length=255, default="null")
     name = models.CharField(max_length=255, default="null")
@@ -27,6 +59,32 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
 
+class Client(models.Model):
+    company_name = models.CharField(max_length=255)
+    contact_name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = ClientManager()
+
+class Project(models.Model):
+    name = models.CharField(max_length=255)
+    client = models.ForeignKey(Client,on_delete=models.DO_NOTHING,related_name="projects")
+    location = models.CharField(max_length=255)
+    main_contractor = models.CharField(max_length=255)
+    manager = models.ForeignKey(User,on_delete=models.DO_NOTHING,related_name="projects")
+    deadline = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+
+
+#################################
+###### Methods (Functions) ######
+#################################
 def create_user(data):
     password =data['password']
     hashed_pwd = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
@@ -59,48 +117,11 @@ def check_login(data):
 
 
 
-class ClientManager(models.Manager):
-    def basic_validator(self, data):
-        errors = {}
-        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-        if len(data['company_name']) < 3:
-            errors['company_name'] = "First Name should be at least 3 characters!"
-        if len(data['contact_name']) < 3:
-            errors['contact_name'] = "First Name should be at least 3 characters!"
-        if len(data['phone_number']) < 10:
-            errors['phone_number'] = "First Name should be at least 10 numbers!"
-        if not EMAIL_REGEX.match(data['email']):
-            errors['email'] = "E-mail address should be valid!"
-        return errors
-
-class Client(models.Model):
-    company_name = models.CharField(max_length=255)
-    contact_name = models.CharField(max_length=255)
-    address = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    objects = ClientManager()
 
 
 
-class ProjectManager(models.Manager):
-    def basic_validator(self, data):
-        errors = {}
-        if len(data['name']) < 3:
-            errors['name'] = "First Name should be at least 3 characters!"
-        if len(data['location']) < 3:
-            errors['location'] = "First Name should be at least 3 characters!"
-        if len(data['main_contractor']) < 3:
-            errors['main_contractor'] = "First Name should be at least 3 characters!"
-        return errors
+
+
+
     
-class Project(models.Model):
-    name = models.CharField(max_length=255)
-    client = models.ForeignKey(Client,on_delete=models.DO_NOTHING,related_name="projects")
-    location = models.CharField(max_length=255)
-    main_contractor = models.CharField(max_length=255)
-    manager = models.ForeignKey(User,on_delete=models.DO_NOTHING,related_name="projects")
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+
