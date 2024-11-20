@@ -75,8 +75,12 @@ WSGI_APPLICATION = '_python_project_mypms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE'    : 'django.db.backends.mysql',
+        'NAME'      : 'mypms_python_project',
+        'USER'      : 'anas',
+        'PASSWORD'  : 'AN@s1992',
+        'HOST'      : '127.0.0.1',
+        'PORT'      : '3306'
     }
 }
 
