@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE'    : 'django.db.backends.mysql',
         'NAME'      : 'mypms_python_project',
-        'USER'      : 'anas',
-        'PASSWORD'  : 'AN@s1992',
+        'USER'      : 'prj_user',
+        'PASSWORD'  : '@Q123@w123',
         'HOST'      : '127.0.0.1',
         'PORT'      : '3306'
     }
