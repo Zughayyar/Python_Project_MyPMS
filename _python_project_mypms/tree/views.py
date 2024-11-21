@@ -1,5 +1,5 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse ,render
 
 # Create your views here.
-def index(request):
-    return HttpResponse("This is tree page")
+def createtree(request):
+    return render(request,"createtree.html")

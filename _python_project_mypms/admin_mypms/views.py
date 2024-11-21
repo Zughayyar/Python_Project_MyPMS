@@ -9,3 +9,21 @@ def adminclient(request):
 
 def AdminDashBoard(request):
     return render(request,'AdminDashBoard.html')
+
+def adminProject(request):
+    return render(request,'adminProject.html')
+
+
+def adminUsers(request):
+    return render(request,'adminUsers.html')
+
+
+def projectmanangerdashboard(request):
+    return render(request,'projectmanangerdashboard.html')
+
+
+def reports(request):
+    return render(request,'reports.html')
+
+def userdashboard(request):
+    return render (request,'userdashboard.html')

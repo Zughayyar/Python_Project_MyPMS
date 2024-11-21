@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('admin_mypms.urls')),
-    path('', include('tree.urls'))
+    path('tree/', include('tree.urls'))
 ]
