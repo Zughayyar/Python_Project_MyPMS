@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashboardstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin-user.css' %}">
+    <title>Users</title>
+</head>
+<body>
+    <!-- Navbar start -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-light navbar-light" id="navbar">
+        <div class="container">
+          <a class="navbar-brand " href="#"
+            ><img
+              id="MDB-logo"
+              src="{% static 'css/img/icon.png' %}"
+              alt="MDB Logo"
+              draggable="false"
+              height="30"
+          /></a>
+          <ul class="navbar-nav ms-auto align-items-center " id="red">
+            <li class="nav-item">
+            <a class="nav-link mx-2" href="#!"><i class="fas fa-bell pe-2"></i>FirmHub</a>
+          </li>
+            </ul>
+          
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto align-items-center " id="red">
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="#!"><i class="fas fa-plus-circle pe-2"></i>Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="#!"><i class="fas fa-bell pe-2"></i>Clients</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="#!" ><i class="fas fa-heart pe-2 " ></i>Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="#!" ><i class="fas fa-heart pe-2 " ></i>Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="#!" ><i class="fas fa-heart pe-2 " ></i>View Reporst</a>
+              </li>
+              <li class="nav-item ms-3">
+                <a class="btn btn-black btn-rounded" href="#!">Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- nav bar end -->
+       <div class="main-page">
+            <h1>Welcome Jalal </h1>
+            <div class="board-admin-cont">
+                <h2>Adminirator Board</h2>
+            </div>
+            <!-- create user -->
+            <div class="main-page-cont">
+            <div class="adduser-cont">
+                <h1>Add Client</h1>
+    
+                <form action="/addclinet" method="post">
+                    
+                    <div class="form-outline mb-4">
+                        <label for="companyname">Company Name</label>
+                        <input type="text" name="companyname" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="contactname">Contact Name</label>
+                        <input type="text" name="contactname" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="address">address</label>
+                        <input type="address" name="address" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="email">email</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="phone">phone</label>
+                        <input type="phone" name="phone" class="form-control">
+                    </div>
+                    
+                    <div class="form-outline mb-4">
+                        <button type="submit" class="btn btn-primary btn-block">Add Client</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end add user form -->
+            <div class="users-table">
+                <table class="table align-middle mb-0 bg-white table-hover">
+                    <thead class="table-dark">
+                      <tr>
+                        <th>ID</th>
+                        <th>Company Name</th>
+                        <th>Contact Name</th>
+                        <th>Address</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Created at</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>
+                            <p class="fw-bold mb-1"> Hemmo co</p>
+                        </td>
+                        <td>
+                          <p class="fw-normal mb-1">jalal hemmo</p>
+
+                        </td>
+                        <td><p class="fw-normal mb-1">Nablus</p></td>
+                        <td><p class="fw-normal mb-1">0597037233</p></td>
+                        <td>
+                            <p class="fw-normal mb-1">jalal.i.hemmo@gmail.com</p>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">10.nov 2012</p>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        </div>
+        
+        
+      
+</body>
+</html>

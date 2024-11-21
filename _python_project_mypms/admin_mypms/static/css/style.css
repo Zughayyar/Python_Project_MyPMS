@@ -1,0 +1,138 @@
+
+
+:root {
+   --main-color: #4e73df;
+   --gray: #858796;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    transition: all 0.2s ease-in-out;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:url(img/loginbackground.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    min-height: 100vh; /* Ensures full viewport height */
+}
+
+.main-login-cont{
+    width: 50%;
+    box-shadow: 1px 0px 5px 2px var(--gray);
+    display: flex;
+    align-items: center;
+    height: 500px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.main-login-cont h3{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.img-cont{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.img-cont h3{
+    font-family: 'Poppins';
+    margin-right: 20px;
+
+}
+.remmber{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+   
+}
+.remmber input{
+    padding: 10px;
+    width: 5px;
+}
+.remmber input:focus{
+    border: none;
+    outline: none;
+}
+.remmber label{
+    width: 100%;
+    margin-left: -90px;
+}
+.img-cont img{
+    width: 200px;
+    height: 200px;
+
+}
+
+.img-cont img:hover{
+    transform: scale(1.05);
+    
+}
+.login-form-cont{
+    width:45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    height: 400px;
+}
+.login-form-cont input{
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border:1px solid var(--gray);
+    
+    transition: all 0.1s ease-in-out;
+}
+
+.login-form-cont input:focus{
+    box-shadow: 0px 0px 2px 3px var(--main-color);
+    outline: none;
+}
+.login-form-cont button{
+    width: 100%;
+    padding: 15px;
+    border-radius:30px ;
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+}
+.login-form-cont button:hover{
+    background-color: #2a5aea;
+    cursor: pointer;
+}
+
+.moreInfo{
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.moreInfo a{
+    color: var(--main-color);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+
+
+}
+
+.moreInfo a:hover{
+    color: red;
+}
