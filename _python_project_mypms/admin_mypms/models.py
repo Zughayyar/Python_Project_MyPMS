@@ -78,6 +78,7 @@ class Project(models.Model):
     deadline = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    objects = ProjectManager()
 
 #################################
 ###### Methods (Functions) ######

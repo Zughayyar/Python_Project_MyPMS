@@ -3,7 +3,7 @@ from admin_mypms.models import Project
 
 class Checklist(models.Model):
     description = models.TextField()
-    checklist = models.CharField(max_length=10, default="Not Approved")
+    checklist = models.TextField(max_length=10, default="Not Approved")
 
 class SubElement(models.Model):
     sub_element = models.TextField()
@@ -43,14 +43,17 @@ def add_sub_element(data):
 def get_all_projects():
     return Project.objects.all()
 #########################################
-
+#########################################
 def create_check_list(data):
     ProjectTree.objects.create(
-        project = data['project'],
-        main_element = data['main_element'],
-        sub_element = data['sub_element'],
+        project = Project.objects.get(id=data['project']) ,
+        main_element = Element.objects.get(id=data['main_element']),
+        sub_element = SubElement.objects.get(id=data['sub_element']),
         description = data['description'],
+        checklist = "Not Approved"
     )
 
 def get_project_tree():
     return ProjectTree.objects.all()
+#########################################
+#########################################
