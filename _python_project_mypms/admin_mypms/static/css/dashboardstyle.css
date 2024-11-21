@@ -1,3 +1,4 @@
+
 #red a{
     transition: all 0.3s ease-in-out;
     height: 100%;
@@ -28,6 +29,7 @@
 
 #navbar{
     box-shadow: 1px 2px 10px 5px #eee;
+    
 }
 .main-page{
     
@@ -42,14 +44,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
     
 }
 .board-admin-cont h2{
     width: 30%;
-    border: 2px solid black;
+    color: white;
     padding: 15px;
     border-radius: 30px;
-    background-color: lightcoral;
+    background-color: rgb(220, 113, 104);
     
 }
 
@@ -144,4 +147,9 @@
     color: white;
     font-size: 17px;
     text-decoration: underline;
+}
+
+.bg-color{
+    background-color: red;
+
 }

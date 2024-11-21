@@ -11,6 +11,7 @@
     box-sizing: border-box;
     font-family: "Poppins";
     transition: all 0.2s ease-in-out;
+    
 }
 body {
     display: flex;
