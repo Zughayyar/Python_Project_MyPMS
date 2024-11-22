@@ -71,3 +71,11 @@ def user_dashboard(request):
 # Note for now we have only Admin and Manager dashboard
 def check_login(request):
     pass
+
+###
+def contact(request):
+    return render(request, "contact.html")
+
+###
+def about(request):
+    return render(request, "about.html")
