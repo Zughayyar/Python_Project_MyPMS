@@ -52,8 +52,6 @@ def view_projects(request):
 ### project manager dashboard function:
 # 1. view projects trees
 # 2. can modify checklist status
-
-
 def project_manager_dashboard(request):
     context = {
         'projects' : models.get_all_projects(),
@@ -80,7 +78,7 @@ def user_dashboard(request):
 # Note for now we have only Admin and Manager dashboard
 def check_login(request):
     pass
-
+  
 ## logout function:
 # 1. flush session
 # 2. redirect to login page
@@ -98,8 +96,16 @@ def add_clinet(request):
 def add_user(request):
     pass
 
-
 ## Create project function:
 # 1. create a project
 def create_project(request):
     pass
+
+###
+def contact(request):
+    return render(request, "contact.html")
+
+###
+def about(request):
+    return render(request, "about.html")
+
