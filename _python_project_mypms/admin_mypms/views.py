@@ -4,8 +4,9 @@ import tree.models
 
 
 ### login function:
-# 1. load log in page.
+# 1. load login page.
 def login(request):
+    
     return render(request,"login.html")
 
 ### admin dashboard function:
