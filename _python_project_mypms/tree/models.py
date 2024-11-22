@@ -27,7 +27,7 @@ def get_all_elements():
 
 def add_element(data):
     Element.objects.create(
-        main_element = data['sub_element']
+        main_element = data['main_element']
     )
 #########################################
 #########################################
