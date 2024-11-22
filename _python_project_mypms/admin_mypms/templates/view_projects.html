@@ -73,8 +73,8 @@
             <div class="adduser-cont">
                 <h1>Create A Project</h1>
     
-                <form action="/createProject" method="post">
-                    
+                <form action="/create_project" method="post">
+                    {% csrf_token %}
                     <div class="form-outline mb-4">
                         <label for="username">Name</label>
                         <input type="text" name="name" class="form-control">

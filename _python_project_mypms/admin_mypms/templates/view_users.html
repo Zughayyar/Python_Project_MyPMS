@@ -73,8 +73,8 @@
             <div class="adduser-cont">
                 <h1>Add User</h1>
     
-                <form action="/addUser" method="post">
-                    
+                <form action="/add_user" method="post">
+                    {% csrf_token %}
                     <div class="form-outline mb-4">
                         <label for="username">Username</label>
                         <input type="text" name="username" class="form-control">
