@@ -10,5 +10,9 @@ urlpatterns = [
     path('project_manager_dashboard',views.project_manager_dashboard),
     path('report',views.report),
     path('user_dashboard',views.user_dashboard),
-    path('check_login',views.check_login)
+    path('check_login',views.check_login),
+    path('logout',views.logout),
+    path('add_clinet',views.add_clinet),
+    path('add_user',views.add_user),
+    path('create_project',views.create_project)
 ]
