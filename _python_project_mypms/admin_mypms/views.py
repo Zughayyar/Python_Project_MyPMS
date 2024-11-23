@@ -36,7 +36,8 @@ def view_clients(request):
 # 4. dropdown input for department
 def view_users(request):
     context = {
-        'users' : models.get_all_users()
+        'users' : models.get_all_users(),
+        'departments' : models.get_all_departments()
     }
     return render(request,'view_users.html', context)
 
@@ -47,7 +48,9 @@ def view_users(request):
 # 4. dropdown input for user(Filter project managers)
 def view_projects(request):
     context = {
-        'projects' : models.get_all_projects()
+        'clients' : models.get_all_clients(),
+        'projects' : models.get_all_projects(),
+        'managers' : models.get_all_managers()
     }
     return render(request,'view_projects.html', context)
 
