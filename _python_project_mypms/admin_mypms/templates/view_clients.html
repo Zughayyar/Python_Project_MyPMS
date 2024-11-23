@@ -116,25 +116,26 @@
                       </tr>
                     </thead>
                     <tbody>
+                      {% for clinet in clients%}
                       <tr>
-                        <td>1</td>
+                        
+                        <td>{{clinet.id}}</td>
                         <td>
-                            <p class="fw-bold mb-1"> Hemmo co</p>
+                            <p class="fw-bold mb-1">{{clinet.company_name}}</p>
                         </td>
                         <td>
-                          <p class="fw-normal mb-1">jalal hemmo</p>
-
+                          <p class="fw-bold mb-1">{{clinet.contact_name}}</p>
                         </td>
-                        <td><p class="fw-normal mb-1">Nablus</p></td>
-                        <td><p class="fw-normal mb-1">0597037233</p></td>
+                        <td><p class="fw-normal mb-1">{{clinet.address}}</p></td>
+                        <td><p class="fw-normal mb-1">{{clinet.phone_number}}</p></td>
                         <td>
-                            <p class="fw-normal mb-1">jalal.i.hemmo@gmail.com</p>
+                            <p class="fw-normal mb-1">{{clinet.email}}</p>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1">10.nov 2012</p>
+                            <p class="fw-normal mb-1">{{clinet.created_at}}</p>
                         </td>
                       </tr>
-                      
+                      {% endfor %}
                     </tbody>
                   </table>
             </div>
