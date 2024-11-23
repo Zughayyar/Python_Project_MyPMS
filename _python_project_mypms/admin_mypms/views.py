@@ -1,11 +1,13 @@
 from django.shortcuts import HttpResponse ,render, redirect
+from django.contrib import messages
 from . import models
 import tree.models
 
 ### login function:
 # 1. load login page.
 def login(request):
-    
+    if 'is_logged_in' not in request.session:
+        request.session['is_logged_in'] = False
     return render(request,"login.html")
 
 ### admin dashboard function:
@@ -77,7 +79,29 @@ def user_dashboard(request):
 # 3. save user info in session
 # Note for now we have only Admin and Manager dashboard
 def check_login(request):
-    pass
+    if request.method == "POST":
+        if models.is_user_exist(request.POST):
+            if models.is_password_match(request.POST):
+                request.session['is_logged_in'] = True
+                logged_user = models.get_user_by_username(request.POST)
+                if 'logged_username' not in request.session:
+                    request.session['logged_username'] = logged_user.username
+                if logged_user.department.id == 1:
+                    return redirect('/admin_dashboard')
+                if logged_user.department.id == 2:
+                    return redirect('/project_manager_dashboard')
+            else:
+                errors = {'password' : "Username and Password not match!"}
+                for key, value in errors.items():
+                    messages.error(request, value)
+                return redirect('/')
+        else:
+            errors = {'username' : "Username not found!"}
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/')
+    else:
+        HttpResponse("Something went wrong!")
   
 ## logout function:
 # 1. flush session

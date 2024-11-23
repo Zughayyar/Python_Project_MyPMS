@@ -132,26 +132,24 @@ def create_project(data):
     )
 
 # get special methods:
-def get_user_by_username(username):
-    return User.objects.filter(username=username)
+def get_user_by_username(data):
+    this_users = User.objects.filter(username=data['username'])
+    return this_users[0]
 
 #check methods:
 def is_user_exist(data):
-    users = get_user_by_username(username = data['username'])
+    users = User.objects.filter(username=data['username'])
     if len(users) == 0:
         return False
     else:
         return True
 
-def is_password_match(entered_email, entered_password):
-    user = User.objects.filter(email = entered_email)
-    password = user[0].password
-    return bcrypt.checkpw(entered_password.encode() , password.encode())
-
-def check_login(data):
+def is_password_match(data):
     entered_username = data['username']
     entered_password = data['password']
-    return is_password_match(entered_username,entered_password)
+    user = User.objects.filter(username = entered_username)
+    password = user[0].password
+    return bcrypt.checkpw(entered_password.encode() , password.encode())
 
 
 
