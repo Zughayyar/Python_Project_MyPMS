@@ -21,25 +21,19 @@
             <form action="/check_login" method='post'>
             {% csrf_token %}
             <h3>Welcome to FirmHub!</h3>
-            <input type="text" name="username" placeholder="Enter Your Username...">
-            <input type="password" name="password" placeholder="password">
-           
-            
+            <input type="text" name="username" placeholder="Enter Your Username..." required>
+            <input type="password" name="password" placeholder="password" required>
             <button type="submit">Login</button>
-                
-
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li>{{message.tags}}: {{message}}</li>
+                {% endfor %}
+            </ul>   
+            {% endif %}
             </form>
             <hr>
             <div class="moreInfo">
-                <!-- here need to be removed -->
-                {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li>{{message.tags}}: {{message}}</li>
-                    {% endfor %}
-                </ul>   
-                {% endif %}
-                <!-- here need to be removed -->
                 <a href="{% url 'about' %}">About Us</a>
                 <a href="{% url 'contact'%}">Contact US</a>
             </div>

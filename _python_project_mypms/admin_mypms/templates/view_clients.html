@@ -11,57 +11,57 @@
 </head>
 <body>
     <!-- Navbar start -->
-    <nav class="navbar navbar-expand-lg fixed-top bg-light navbar-light" id="navbar">
-        <div class="container">
-          <a class="navbar-brand " href="#"
-            ><img
-              id="MDB-logo"
-              src="{% static 'css/img/icon.png' %}"
-              alt="MDB Logo"
-              draggable="false"
-              height="30"
-          /></a>
+    <nav class="navbar navbar-expand-lg fixed-top bg-light navbar-light " id="navbar">
+      <div class="container">
+        <a class="navbar-brand " href="#"
+          ><img
+            id="MDB-logo"
+            src="{% static 'css/img/icon.png' %}"
+            alt="MDB Logo"
+            draggable="false"
+            height="30"
+        /></a>
+        <ul class="navbar-nav ms-auto align-items-center " id="red">
+          <li class="nav-item">
+          <a class="nav-link mx-2" href="{% url 'admin_dashboard' %}"><i class="fas fa-bell pe-2"></i>FirmHub</a>
+        </li>
+          </ul>
+        
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto align-items-center " id="red">
             <li class="nav-item">
-            <a class="nav-link mx-2" href="#!"><i class="fas fa-bell pe-2"></i>FirmHub</a>
-          </li>
-            </ul>
-          
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-mdb-toggle="collapse"
-            data-mdb-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto align-items-center " id="red">
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="#!"><i class="fas fa-plus-circle pe-2"></i>Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="#!"><i class="fas fa-bell pe-2"></i>Clients</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="#!" ><i class="fas fa-heart pe-2 " ></i>Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="#!" ><i class="fas fa-heart pe-2 " ></i>Users</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="#!" ><i class="fas fa-heart pe-2 " ></i>View Reporst</a>
-              </li>
-              <li class="nav-item ms-3">
-                <a class="btn btn-black btn-rounded" href="#!">Sign out</a>
-              </li>
-            </ul>
-          </div>
+              <a class="nav-link mx-2" href="{% url 'admin_dashboard' %}"><i class="fas fa-plus-circle pe-2"></i>Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="{% url 'view_clients' %}"><i class="fas fa-bell pe-2"></i>Clients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="{% url 'view_projects' %}" ><i class="fas fa-heart pe-2 " ></i>Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="{% url 'view_users' %}" ><i class="fas fa-heart pe-2 " ></i>Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="{% url 'report' %}" ><i class="fas fa-heart pe-2 " ></i>View Report</a>
+            </li>
+            <li class="nav-item ms-3">
+              <a class="btn btn-black btn-rounded" href="{% url 'logout' %}">Sign out</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
       <!-- nav bar end -->
        <div class="main-page">
             <h1>Welcome Jalal </h1>
@@ -116,25 +116,26 @@
                       </tr>
                     </thead>
                     <tbody>
+                      {% for clinet in clients%}
                       <tr>
-                        <td>1</td>
+                        
+                        <td>{{clinet.id}}</td>
                         <td>
-                            <p class="fw-bold mb-1"> Hemmo co</p>
+                            <p class="fw-bold mb-1">{{clinet.company_name}}</p>
                         </td>
                         <td>
-                          <p class="fw-normal mb-1">jalal hemmo</p>
-
+                          <p class="fw-bold mb-1">{{clinet.contact_name}}</p>
                         </td>
-                        <td><p class="fw-normal mb-1">Nablus</p></td>
-                        <td><p class="fw-normal mb-1">0597037233</p></td>
+                        <td><p class="fw-normal mb-1">{{clinet.address}}</p></td>
+                        <td><p class="fw-normal mb-1">{{clinet.phone_number}}</p></td>
                         <td>
-                            <p class="fw-normal mb-1">jalal.i.hemmo@gmail.com</p>
+                            <p class="fw-normal mb-1">{{clinet.email}}</p>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1">10.nov 2012</p>
+                            <p class="fw-normal mb-1">{{clinet.created_at}}</p>
                         </td>
                       </tr>
-                      
+                      {% endfor %}
                     </tbody>
                   </table>
             </div>

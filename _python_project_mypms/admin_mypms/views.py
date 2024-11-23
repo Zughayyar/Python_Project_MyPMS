@@ -108,7 +108,7 @@ def check_login(request):
 # 2. redirect to login page
 def logout(request):
     request.session.flush()
-    return redirect("/login")
+    return redirect("/")
 
 ## Add client function:
 # 1.create A Clinet
