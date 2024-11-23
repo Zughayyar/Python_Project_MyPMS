@@ -64,7 +64,7 @@
     </nav>
       <!-- nav bar end -->
        <div class="main-page">
-            <h1>Welcome Jalal </h1>
+          <h1>Welcome {{request.session.logged_username}} </h1>
             <div class="board-admin-cont">
                 <h2>Adminirator Board</h2>
             </div>
@@ -81,7 +81,11 @@
                     </div>
                     <div class="form-outline mb-4">
                         <label for="clinet">Client</label>
-                        <input type="text" name="clinet" class="form-control">
+                        <select name="project_manager" id="" class="form-control">
+                          {% for clinet in clinets %}
+                            <option value="{{clinet.id}}">{{clinet.name}}</option>
+                          {% endfor %}
+                        </select>
                     </div>
                     <div class="form-outline mb-4">
                         <label for="Location">Location</label>
@@ -92,11 +96,11 @@
                         <input type="maincontractor" name="maincontractor" class="form-control">
                     </div>
                     <div class="form-outline mb-4">
-                        <label for="projectmanager">Project Manager</label>
-                        <select name="projectmanager" id=""class="form-control">
-                            <option value="client.name">CCC</option>
-                            <option value="client.name">Alfares</option>
-                            
+                        <label for="project_manager">Project Manager</label>
+                        <select name="project_manager" id="" class="form-control">
+                          {% for manager in managers %}
+                            <option value="{{manager.id}}">{{manager.name}}</option>
+                          {% endfor %}
                         </select>
                         
                     </div>
@@ -122,19 +126,20 @@
                       </tr>
                     </thead>
                     <tbody>
+                      {% for project in projects %}
                       <tr>
-                        <td>1</td>
+                        <td>{{project.id}}</td>
                         <td>
-                            <p class="fw-bold mb-1">Land Mark Hotel</p>
+                            <p class="fw-bold mb-1">{{project.name}}</p>
                         </td>
                         <td>
-                          <p class="fw-normal mb-1">CCC</p>
+                          <p class="fw-normal mb-1">{{project.clinet.name}}</p>
                         </td>
-                        <td><p class="fw-normal mb-1">Rammallah - Tira</p></td>
-                        <td><p class="fw-normal mb-1">CCC</p></td>
-                        <td><p class="fw-normal mb-1">Anas Zaguir</p></td>
-                        <td><p class="fw-normal mb-1">10.Nov 2022</p></td>
-                        <td><p class="fw-normal mb-1">10.Nov 2022</p></td>
+                        <td><p class="fw-normal mb-1">{{project.address}}</p></td>
+                        <td><p class="fw-normal mb-1">{{project.main_contractor}}</p></td>
+                        <td><p class="fw-normal mb-1">{{project.manager.name}}</p></td>
+                        <td><p class="fw-normal mb-1">{{project.created_at}}</p></td>
+                        <td><p class="fw-normal mb-1">{{project.updated_at}}</p></td>
                         <td>
                           <button type="button" class="btn btn-link btn-sm btn-rounded">
                             Edit 
