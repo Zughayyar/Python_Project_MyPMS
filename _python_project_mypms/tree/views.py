@@ -35,6 +35,9 @@ def add_project_tree(request):
 def project_checklist(request, project_id, element_id, subelement_id):
     if request.session['is_logged_in'] == True:
         context = {
+            'element1'      : models.get_element_by_id(1),
+            'element2'      : models.get_element_by_id(2),
+            'subelements'   : models.get_all_sub_elements(),
             'project'       : models.get_project_by_id(project_id),
             'element'       : models.get_element_by_id(element_id),
             'subelement'    : models.get_sub_element_by_id(subelement_id),
@@ -43,3 +46,9 @@ def project_checklist(request, project_id, element_id, subelement_id):
         return render(request,'project_checklist.html', context)
     else:
         return redirect('/')
+    
+def report(request):
+    context = {
+        'projects_tree' : models.get_project_tree()
+    }
+    return render(request, "report.html", context)

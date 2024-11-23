@@ -28,42 +28,23 @@
                 </div>
             </div>
             <ul class="sidebar-nav">
-                <!--  -->
-                <li class="sidebar-item ">
-                    <a href="#" class="sidebar-link">
-                        <i class="bi bi-folder-fill"></i>
-                        <span>
-                        <select name="" id="">
-                            <option value="das">Land Mark Hotel</option>
-                        </select>
-                        </span>
-                    </a>
-                </li>
-                <!--QA General -->
-              
-               
+                
+                <!-- Element -->
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                         data-bs-target="#QAgen" aria-expanded="false" aria-controls="auth">
                         <i class="bi bi-folder-fill"></i>
-                        <span>QA General</span>
+                        <span>{{element1.main_element}}</span>
                     </a>
                     <ul id="QAgen" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            
-                            <a href="#" class="sidebar-link">Main Contractor</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element1.id}}/10" class="sidebar-link">Main Contractor</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Sub Contractor</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element1.id}}/11" class="sidebar-link">Sub Contractor</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Materials Lab</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">General Documents</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Project Handover</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element1.id}}/12" class="sidebar-link">Materials Lab</a>
                         </li>
                     </ul>
                 </li>
@@ -72,47 +53,43 @@
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                         data-bs-target="#qaexe" aria-expanded="false" aria-controls="auth">
                         <i class="bi bi-folder-fill"></i>
-                        <span>QA Execution</span>
+                        <span>{{element2.main_element}}</span>
                     </a>
                     <ul id="qaexe" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            
-                            <a href="#" class="sidebar-link">Sub Base</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element2.id}}/1" class="sidebar-link">Sub Base</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Foundations</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element2.id}}/2" class="sidebar-link">Foundations</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Neck Columns</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element2.id}}/3" class="sidebar-link">Neck Columns</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">The Beams</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element2.id}}/4" class="sidebar-link">Tie Beams</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Grounds Lab</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element2.id}}/5" class="sidebar-link">Ground Floor Slab</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Grounds Floor Columns</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element2.id}}/6" class="sidebar-link">Grounds Floor Columns</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">First Floor Slab</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element2.id}}/7" class="sidebar-link">First Floor Slab</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">First Floor Columns</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element2.id}}/8" class="sidebar-link">First Floor Columns</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Roof Slab</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Roof parabit</a>
+                            <a href="/tree/checklist/{{project.id}}/{{element2.id}}/9" class="sidebar-link">Roof Slab</a>
                         </li>
                     </ul>
                 </li>
 
 
-                <!-- QA Execution end -->
+                <!-- Reports -->
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="/tree/report" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Reports</span>
                     </a>

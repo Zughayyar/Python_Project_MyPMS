@@ -68,7 +68,7 @@
         <h2 class="Section-title">Elements</h2>
         <div class="form-container">
           <h2>Add Element</h2>
-          <form action="/tree/addelement" method="post">
+          <form action="/tree/add_element" method="post">
             {% csrf_token %}
             <div class="mb-3">
               <label class="form-label">Element:</label>
@@ -100,7 +100,7 @@
         <h2 class="Section-title">Sub Elements</h2>
         <div class="form-container">
           <h2>Add Sub Element</h2>
-          <form action="/tree/addsubelement" method="post">
+          <form action="/tree/add_sub_element" method="post">
             {% csrf_token %}
             <div class="mb-3">
               <label class="form-label">Element:</label>
@@ -131,7 +131,7 @@
       <div class="container-12">
         <div class="form-container-12">
           <h2>Add Check List</h2>
-          <form action="/tree/addprojecttree" method="post">
+          <form action="/tree/add_project_tree" method="post">
               {% csrf_token %}
               <label class="form-label">Choose Project:</label>
               <select name="project" class="form-select">
