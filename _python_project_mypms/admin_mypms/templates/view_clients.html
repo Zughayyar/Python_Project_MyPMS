@@ -99,6 +99,13 @@
                     <div class="form-outline mb-4">
                         <button type="submit" class="btn btn-primary btn-block">Add Client</button>
                     </div>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li>{{message}}</li>
+                        {% endfor %}
+                    </ul>   
+                    {% endif %}
                 </form>
             </div>
             <!-- end add user form -->

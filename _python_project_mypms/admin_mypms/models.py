@@ -9,9 +9,9 @@ class UserManager(models.Manager):
     def basic_validator(self, data):
         errors = {}
         if len(data['username']) < 8:
-            errors['first_name'] = "First Name should be at least 8 characters!"
+            errors['username'] = "Username should be at least 8 characters!"
         if len(data['name']) < 8:
-            errors['last_name'] = "First Name should be at least 8 characters!"
+            errors['name'] = "Name should be at least 8 characters!"
         if len(data['password']) < 8:
             errors['password_len'] = "Password should be at least 8 characters!"
         if data['re_password'] != data['password'] and len(data['password']) >= 8:
@@ -23,11 +23,11 @@ class ClientManager(models.Manager):
         errors = {}
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         if len(data['company_name']) < 3:
-            errors['company_name'] = "First Name should be at least 3 characters!"
+            errors['company_name'] = "Company Name should be at least 3 characters!"
         if len(data['contact_name']) < 3:
-            errors['contact_name'] = "First Name should be at least 3 characters!"
+            errors['contact_name'] = "Contact Name should be at least 3 characters!"
         if len(data['phone_number']) < 10:
-            errors['phone_number'] = "First Name should be at least 10 numbers!"
+            errors['phone_number'] = "Phone Number should be at least 10 numbers!"
         if not EMAIL_REGEX.match(data['email']):
             errors['email'] = "E-mail address should be valid!"
         return errors
@@ -36,11 +36,11 @@ class ProjectManager(models.Manager):
     def basic_validator(self, data):
         errors = {}
         if len(data['name']) < 3:
-            errors['name'] = "First Name should be at least 3 characters!"
+            errors['name'] = "Name should be at least 3 characters!"
         if len(data['location']) < 3:
-            errors['location'] = "First Name should be at least 3 characters!"
+            errors['location'] = "Location should be at least 3 characters!"
         if len(data['main_contractor']) < 3:
-            errors['main_contractor'] = "First Name should be at least 3 characters!"
+            errors['main_contractor'] = "Main Contractor should be at least 3 characters!"
         return errors
 
 ###########################

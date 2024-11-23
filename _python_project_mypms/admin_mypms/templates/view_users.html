@@ -103,7 +103,13 @@
                     <div class="form-outline mb-4">
                         <button type="submit" class="btn btn-primary btn-block">Add User</button>
                     </div>
-                    
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li>{{message}}</li>
+                        {% endfor %}
+                    </ul>   
+                    {% endif %}
                 </form>
             </div>
             <!-- end add user form -->
@@ -142,50 +148,6 @@
                         </td>
                       </tr>
                       {% endfor %}
-                      <tr>
-                        <td>
-                          2
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">Anas Z</p>
-                          
-                        </td>
-                        <td>
-                          Project Manager
-                        </td>
-                        <td><p class="fw-normal mb-1">10.nov 2012</p></td>
-                        <td><p class="fw-normal mb-1">10.nov 2019</p></td>
-                        <td>
-                          <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            Edit 
-                          </button> |
-                          <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            Delete 
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          3
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">Ameed S</p>
-                          
-                        </td>
-                        
-                        <td>QA engineer</td>
-                        <td><p class="fw-normal mb-1">10.nov 2012</p></td>
-                        <td><p class="fw-normal mb-1">10.nov 2019</p></td>
-                        <td>
-                          <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            Edit 
-                          </button> |
-                          <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            Delete 
-                          </button>
-                        </td>
-                        </td>
-                      </tr>
                     </tbody>
                   </table>
             </div>
