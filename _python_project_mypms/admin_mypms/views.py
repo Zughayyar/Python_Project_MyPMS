@@ -15,7 +15,7 @@ def login(request):
 # 4. List of latest 3 project
 # Note: admin dashboard can access: view_clients, view_users, view_projects
 def admin_dashboard(request):
-
+    
     return render(request,'admin_dashboard.html')
 
 ### view clients function:
