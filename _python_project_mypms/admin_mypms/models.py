@@ -97,6 +97,10 @@ def get_all_users():
 def get_all_projects():
     return Project.objects.all()
 
+def get_all_managers():
+    managers_department = Department.objects.get(id=2)
+    return User.objects.filter(department = managers_department)
+
 ### create methods:
 def create_client(data):
     Client.objects.create(
