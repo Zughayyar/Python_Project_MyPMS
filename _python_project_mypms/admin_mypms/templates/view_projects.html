@@ -81,9 +81,9 @@
                     </div>
                     <div class="form-outline mb-4">
                         <label for="clinet">Client</label>
-                        <select name="clinet_id"  class="form-control">
-                          {% for clinet in clinets %}
-                            <option value="{{clinet.id}}">{{clinet.name}}</option>
+                        <select name="client_id"  class="form-control">
+                          {% for client in clients %}
+                            <option value="{{client.id}}">{{client.company_name}}</option>
                           {% endfor %}
                         </select>
                     </div>
@@ -93,8 +93,12 @@
                     </div>
                     <div class="form-outline mb-4">
                         <label for="main_contractor ">Main Contractor</label>
-                        <input type="text" name="main_contractor " class="form-control">
+                        <input type="text" name="main_contractor" class="form-control">
                     </div>
+                    <div class="form-outline mb-4">
+                      <label for="main_contractor">Dead Line</label>
+                      <input type="date" name="deadline" class="form-control">
+                  </div>
                     <div class="form-outline mb-4">
                         <label for="project_manager">Project Manager</label>
                         <select name="manager_id" id="" class="form-control">
@@ -149,8 +153,8 @@
                           </button>
                         </td>
                       </tr>
+                      {% endfor %}
 
-                     
                     </tbody>
                   </table>
                   
