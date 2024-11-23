@@ -26,6 +26,9 @@ class ProjectTree(ElementTree):
 def get_all_elements():
     return Element.objects.all()
 
+def get_element_by_id(id):
+    return Element.objects.get(id=id)
+
 def get_all_sub_elements():
     return SubElement.objects.all()
 
@@ -45,12 +48,13 @@ def get_sub_element_by_id(subelement_id):
     return SubElement.objects.get(id=subelement_id)
 
 def get_project_tree_by_filter(project_id, element_id, subelement_id):
-
     return ProjectTree.objects.filter(
         project = get_project_by_id(project_id),
         main_element = get_element_by_id(element_id),
         sub_element = get_sub_element_by_id(subelement_id)
     )
+
+
 
 #########################################
 ## add methods:

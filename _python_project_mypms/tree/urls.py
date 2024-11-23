@@ -2,9 +2,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('createtree', views.create_tree),
-    path('addelement', views.add_element),
-    path('addsubelement', views.add_sub_element),
-    path('addprojecttree', views.add_project_tree),
+    path('create_tree', views.create_tree),
+    path('add_element', views.add_element),
+    path('add_sub_element', views.add_sub_element),
+    path('add_project_tree', views.add_project_tree),
     path('checklist/<int:project_id>/<int:element_id>/<int:subelement_id>', views.project_checklist),
+    path('report', views.report),
 ]
