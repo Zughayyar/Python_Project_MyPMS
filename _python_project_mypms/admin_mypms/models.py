@@ -106,6 +106,7 @@ def create_client(data):
     Client.objects.create(
         company_name = data['company_name'],
         contact_name = data['contact_name'],
+        phone_number = data['phone_number'],
         address = data['address'],
         email = data['email']
     )
