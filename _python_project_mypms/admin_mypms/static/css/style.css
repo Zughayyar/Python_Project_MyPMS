@@ -17,7 +17,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background:url(img/loginbackground.png);
+    background:url('img/loginbackground.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -53,25 +53,7 @@ body {
     margin-right: 20px;
 
 }
-.remmber{
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-   
-}
-.remmber input{
-    padding: 10px;
-    width: 5px;
-}
-.remmber input:focus{
-    border: none;
-    outline: none;
-}
-.remmber label{
-    width: 100%;
-    margin-left: -90px;
-}
+
 .img-cont img{
     width: 200px;
     height: 200px;
@@ -89,7 +71,8 @@ body {
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
-    
+   
+   
     height: 400px;
 }
 .login-form-cont input{
@@ -97,7 +80,7 @@ body {
     padding: 15px;
     border-radius: 30px;
     border:1px solid var(--gray);
-    
+    margin-top: 10px;
     transition: all 0.1s ease-in-out;
 }
 
@@ -108,6 +91,7 @@ body {
 .login-form-cont button{
     width: 100%;
     padding: 15px;
+    margin-top: 10px;
     border-radius:30px ;
     border: none;
     background-color: var(--main-color);
