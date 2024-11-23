@@ -66,7 +66,7 @@
        <div class="main-page">
             <h1>Welcome {{request.session.logged_username}} </h1>
             <div class="board-admin-cont">
-                <h2>Adminirator Board</h2>
+                <h2>Adminirator Board  - Clients</h2>
             </div>
             <!-- create user -->
             <div class="main-page-cont">
@@ -102,7 +102,7 @@
                     {% if messages %}
                     <ul class="messages">
                         {% for message in messages %}
-                        <li>{{message}}</li>
+                        <li>- {{message}}</li>
                         {% endfor %}
                     </ul>   
                     {% endif %}
