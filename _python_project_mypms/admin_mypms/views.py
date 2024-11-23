@@ -75,10 +75,10 @@ def view_projects(request):
 def project_manager_dashboard(request):
     if request.session['is_logged_in'] == True:
         context = {
-            'projects' : models.get_all_projects(),
-            'elements' : tree.models.get_all_elements(),
-            'subelements' : tree.models.get_all_sub_elements(),
-            'projects_tree' :tree.models.get_project_tree()
+            'projects'      : models.get_all_projects_ordered_by_last_added(),
+            'elements'      : tree.models.get_all_elements(),
+            'subelements'   : tree.models.get_all_sub_elements(),
+            'projects_tree' : tree.models.get_project_tree()
         }
         return render(request,'project_manager_dashboard.html', context)
     else:

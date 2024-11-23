@@ -110,6 +110,9 @@ def get_projects_ordered_by_last_modified():
 def get_projects_ordered_by_last_added():
     return Project.objects.all().order_by("-created_at")[:3]
 
+def get_all_projects_ordered_by_last_added():
+    return Project.objects.all().order_by("-created_at")
+
 ### create methods:
 def create_client(data):
     Client.objects.create(
