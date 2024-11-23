@@ -116,17 +116,20 @@ def logout(request):
 ## Add client function:
 # 1.create A Clinet
 def add_clinet(request):
-    pass
+    models.create_client(request.POST)
+    return redirect('/view_clients')
 
 ## Add User function:
 # 1.Create user
 def add_user(request):
-    pass
+    models.create_user(request.POST)
+    return redirect('/view_users')
 
 ## Create project function:
 # 1. create a project
 def create_project(request):
-    pass
+    models.create_project(request.POST)
+    return redirect('/view_projects')
 
 ###
 def contact(request):
