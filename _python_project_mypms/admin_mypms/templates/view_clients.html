@@ -74,14 +74,14 @@
                 <h1>Add Client</h1>
     
                 <form action="/add_clinet" method="post">
-                    
+                    {% csrf_token %}
                     <div class="form-outline mb-4">
                         <label for="companyname">Company Name</label>
-                        <input type="text" name="companyname" class="form-control">
+                        <input type="text" name="company_name" class="form-control">
                     </div>
                     <div class="form-outline mb-4">
                         <label for="contactname">Contact Name</label>
-                        <input type="text" name="contactname" class="form-control">
+                        <input type="text" name="contact_name" class="form-control">
                     </div>
                     <div class="form-outline mb-4">
                         <label for="address">Address</label>
@@ -93,7 +93,7 @@
                     </div>
                     <div class="form-outline mb-4">
                         <label for="phone">Phone</label>
-                        <input type="phone" name="phone" class="form-control">
+                        <input type="phone" name="phone_number" class="form-control">
                     </div>
                     
                     <div class="form-outline mb-4">
