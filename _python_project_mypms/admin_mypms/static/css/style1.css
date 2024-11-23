@@ -149,7 +149,9 @@ a.sidebar-link:hover {
 
 .text-center{
     display: flex;
-    justify-content: center;
+    
+    justify-content: start;
+    gap: 300px;
     align-items: center;
 }
 
@@ -224,4 +226,21 @@ a.sidebar-link:hover {
 .messages li {
     text-transform: capitalize;
     color: red;
+}
+
+.cards-cont{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    
+   
+}
+#project-card{
+    transition: all 0.1s ease-in;
+}
+
+#project-card:hover{
+    box-shadow: 0px 0px 5px 1px #3b7ddd;
+    transform: scale(1.004);
+    cursor: pointer;
 }
