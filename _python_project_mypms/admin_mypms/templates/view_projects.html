@@ -111,6 +111,13 @@
                     <div class="form-outline mb-4">
                         <button type="submit" class="btn btn-primary btn-block">Add Project</button>
                     </div>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li>{{message}}</li>
+                        {% endfor %}
+                    </ul>   
+                    {% endif %}
                 </form>
             </div>
             <!-- end add user form -->
@@ -120,12 +127,11 @@
                       <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Clinet</th>
+                        <th>Client</th>
                         <th>Location</th>
                         <th>Main Contractor</th>
                         <th>Project Manager</th>
                         <th>Created at</th>
-                        <th>Last Modified</th>
                         <th>DeadLine Date</th>
                       </tr>
                     </thead>
@@ -137,21 +143,13 @@
                             <p class="fw-bold mb-1">{{project.name}}</p>
                         </td>
                         <td>
-                          <p class="fw-normal mb-1">{{project.clinet.name}}</p>
+                          <p class="fw-normal mb-1">{{project.client.company_name}}</p>
                         </td>
-                        <td><p class="fw-normal mb-1">{{project.address}}</p></td>
+                        <td><p class="fw-normal mb-1">{{project.location}}</p></td>
                         <td><p class="fw-normal mb-1">{{project.main_contractor}}</p></td>
                         <td><p class="fw-normal mb-1">{{project.manager.name}}</p></td>
                         <td><p class="fw-normal mb-1">{{project.created_at}}</p></td>
-                        <td><p class="fw-normal mb-1">{{project.updated_at}}</p></td>
-                        <td>
-                          <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            Edit 
-                          </button> |
-                          <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            Delete 
-                          </button>
-                        </td>
+                        <td><p class="fw-normal mb-1">{{project.deadline}}</p></td>
                       </tr>
                       {% endfor %}
 
