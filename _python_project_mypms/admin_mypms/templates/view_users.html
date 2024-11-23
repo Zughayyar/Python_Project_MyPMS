@@ -88,20 +88,22 @@
                         <input type="password" name="password" class="form-control">
                     </div>
                     <div class="form-outline mb-4">
-                        <label for="confirmPW">Confirm PW</label>
-                        <input type="confirmPW" name="confirmPW" class="form-control">
+                        <label for="re_password">Confirm PW</label>
+                        <input type="password" name="re_password" class="form-control">
                     </div>
                     <div class="form-outline mb-4">
                         <label for="department">Department</label>
-                        <select name="department" id=""class="form-control">
-                            <option value="ProjectManager">Project Manager</option>
-                            <option value="qaeng">QA Eng</option>
+                        <select name="department_id" class="form-control">
+                          {% for department in departments %}
+                            <option value="{{department.id}}">{{department.name}}</option>
+                            {% endfor %}
                         </select>
                         
                     </div>
                     <div class="form-outline mb-4">
                         <button type="submit" class="btn btn-primary btn-block">Add User</button>
                     </div>
+                    
                 </form>
             </div>
             <!-- end add user form -->
@@ -119,16 +121,17 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>1</td>
+                        {% for user  in users %}
+                        <td>{{user.id}}</td>
                         <td>
-                            <p class="fw-bold mb-1">Jalal Hemmo</p>
+                            <p class="fw-bold mb-1">{{user.name}}</p>
                         </td>
                         <td>
-                          <p class="fw-normal mb-1">QA engineer</p>
+                          <p class="fw-normal mb-1">{{user.department.name}}</p>
 
                         </td>
-                        <td><p class="fw-normal mb-1">10.nov 2012</p></td>
-                        <td><p class="fw-normal mb-1">10.nov 2019</p></td>
+                        <td><p class="fw-normal mb-1">{{user.created_at}}</p></td>
+                        <td><p class="fw-normal mb-1">{{user.updated_at}}</p></td>
                         <td>
                           <button type="button" class="btn btn-link btn-sm btn-rounded">
                             Edit 
@@ -138,6 +141,7 @@
                           </button>
                         </td>
                       </tr>
+                      {% endfor %}
                       <tr>
                         <td>
                           2
