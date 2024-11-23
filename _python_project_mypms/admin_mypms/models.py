@@ -101,6 +101,12 @@ def get_all_managers():
     managers_department = Department.objects.get(id=2)
     return User.objects.filter(department = managers_department)
 
+def get_projects_ordered_by_last_modified():
+    return Project.objects.all().order_by("-updated_at")
+
+def get_projects_ordered_by_last_added():
+    return Project.objects.all().order_by("-created_at")
+
 ### create methods:
 def create_client(data):
     Client.objects.create(
