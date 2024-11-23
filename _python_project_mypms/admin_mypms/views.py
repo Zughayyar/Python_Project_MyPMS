@@ -18,7 +18,11 @@ def login(request):
 # Note: admin dashboard can access: view_clients, view_users, view_projects
 def admin_dashboard(request):
     if request.session['is_logged_in'] == True:
-        return render(request,'admin_dashboard.html')
+        context = {
+            'latest_projects'   : models.get_projects_ordered_by_last_added(),
+            'modified_projects' : models.get_projects_ordered_by_last_modified()
+        }
+        return render(request,'admin_dashboard.html', context)
     else:
         return redirect('/')
 
