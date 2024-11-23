@@ -41,7 +41,10 @@ class ProjectManager(models.Manager):
             errors['location'] = "Location should be at least 3 characters!"
         if len(data['main_contractor']) < 3:
             errors['main_contractor'] = "Main Contractor should be at least 3 characters!"
+        if len(data['deadline'])==0 :
+            errors['deadline']="Please enter a valid DeadLine"
         return errors
+    
 
 ###########################
 ###### Table Classes ######
@@ -102,10 +105,10 @@ def get_all_managers():
     return User.objects.filter(department = managers_department)
 
 def get_projects_ordered_by_last_modified():
-    return Project.objects.all().order_by("-updated_at")
+    return Project.objects.all().order_by("-updated_at")[:3]
 
 def get_projects_ordered_by_last_added():
-    return Project.objects.all().order_by("-created_at")
+    return Project.objects.all().order_by("-created_at")[:3]
 
 ### create methods:
 def create_client(data):

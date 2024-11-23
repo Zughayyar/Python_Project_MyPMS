@@ -72,8 +72,8 @@
     <div class="Cards-cont">
         <h5>Latest Modified Projects: </h5>
         <ul class="projects-list">
+            {% for project in latest_projects %}
             <li >
-               
                 <img src="{% static 'css/img/hotel1.jpeg' %}" alt="projectimg">
                 <div class="info-desc-cont">
                     <div class="info-title">
@@ -82,50 +82,21 @@
                         <p>Project Manageer:</p>
                     </div>
                     <div class="info-title-info">
-                        <p>Project Name</p>
-                        <p>Clinet Name</p>
-                        <p>Project Manageer</p>
-                    </div>
-                </div>
-                
-            </li>
-            <li>
-                <img src="{% static 'css/img/hotel1.jpeg' %}" alt="projectimg">
-                <div class="info-desc-cont">
-                    <div class="info-title">
-                        <p>Project Name:</p>
-                        <p>Clinet Name:</p>
-                        <p>Project Manageer:</p>
-                    </div>
-                    <div class="info-title-info">
-                        <p>Project Name</p>
-                        <p>Clinet Name</p>
-                        <p>Project Manageer</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <img src="{% static 'css/img/hotel1.jpeg' %}" alt="projectimg">
-                <div class="info-desc-cont">
-                    <div class="info-title">
-                        <p>Project Name:</p>
-                        <p>Clinet Name:</p>
-                        <p>Project Manageer:</p>
-                    </div>
-                    <div class="info-title-info">
-                        <p>Project Name</p>
-                        <p>Clinet Name</p>
-                        <p>Project Manageer</p>
+                        <p>{{project.name}}</p>
+                        <p>{{project.client.company_name}}</p>
+                        <p>{{project.manager.name}}</p>
                     </div>
                 </div>
             </li>
             
             
+            {% endfor %}
         </ul>
     </div>
     <div class="Cards-cont">
         <h5>Latest Projects: </h5>
         <ul class="projects-list">
+            {% for project in modified_projects %}
             <li>
                 <img src="{% static 'css/img/hotel1.jpeg' %}" alt="projectimg">
                 <div class="info-desc-cont">
@@ -135,51 +106,21 @@
                         <p>Project Manageer:</p>
                     </div>
                     <div class="info-title-info">
-                        <p>Project Name</p>
-                        <p>Clinet Name</p>
-                        <p>Project Manageer</p>
+                        <p>{{project.name}}</p>
+                        <p>{{project.client.company_name}}</p>
+                        <p>{{project.manager.name}}</p>
                     </div>
                 </div>
             </li>
-            <li>
-                <img src="{% static 'css/img/hotel1.jpeg' %}" alt="projectimg">
-                <div class="info-desc-cont">
-                    <div class="info-title">
-                        <p>Project Name:</p>
-                        <p>Clinet Name:</p>
-                        <p>Project Manageer:</p>
-                    </div>
-                    <div class="info-title-info">
-                        <p>Project Name</p>
-                        <p>Clinet Name</p>
-                        <p>Project Manageer</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <img src="{% static 'css/img/hotel1.jpeg' %}" alt="projectimg">
-                <div class="info-desc-cont">
-                    <div class="info-title">
-                        <p>Project Name:</p>
-                        <p>Clinet Name:</p>
-                        <p>Project Manageer:</p>
-                    </div>
-                    <div class="info-title-info">
-                        <p>Project Name</p>
-                        <p>Clinet Name</p>
-                        <p>Project Manageer</p>
-                    </div>
-                </div>
-            </li>
-            
+            {% endfor %}
             
         </ul>
     </div>
   </div>
 </div>
 <div class="footer">
-    <a href="#">About Us</a>
-    <a href="#">Contact Us</a>
+    <a href="{% url 'about' %}">About Us</a>
+    <a href="{% url 'contact'%}">Contact US</a>
 </div>
 
 
