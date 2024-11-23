@@ -19,12 +19,10 @@
         </div>
         <div class="login-form-cont">
             <form action="/check_login" method='post'>
-                {% csrf_token %}
+            {% csrf_token %}
             <h3>Welcome to FirmHub!</h3>
             <input type="text" name="username" placeholder="Enter Your Username..." required>
             <input type="password" name="password" placeholder="password" required>
-           
-            
             <button type="submit">Login</button>
             {% if messages %}
             <ul class="messages">
@@ -33,9 +31,6 @@
                 {% endfor %}
             </ul>   
             {% endif %}
-            <ul class="messages">
-                <li >- invalid user</li>
-            </ul>
             </form>
             <hr>
             <div class="moreInfo">
