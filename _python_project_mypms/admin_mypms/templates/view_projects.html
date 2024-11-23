@@ -76,28 +76,28 @@
                 <form action="/create_project" method="post">
                     {% csrf_token %}
                     <div class="form-outline mb-4">
-                        <label for="username">Name</label>
+                        <label for="name">Name</label>
                         <input type="text" name="name" class="form-control">
                     </div>
                     <div class="form-outline mb-4">
                         <label for="clinet">Client</label>
-                        <select name="project_manager" id="" class="form-control">
+                        <select name="clinet_id"  class="form-control">
                           {% for clinet in clinets %}
                             <option value="{{clinet.id}}">{{clinet.name}}</option>
                           {% endfor %}
                         </select>
                     </div>
                     <div class="form-outline mb-4">
-                        <label for="Location">Location</label>
-                        <input type="Location" name="Location" class="form-control">
+                        <label for="location">Location</label>
+                        <input type="Location" name="location" class="form-control">
                     </div>
                     <div class="form-outline mb-4">
-                        <label for="maincontractor">Main Contractor</label>
-                        <input type="maincontractor" name="maincontractor" class="form-control">
+                        <label for="main_contractor ">Main Contractor</label>
+                        <input type="text" name="main_contractor " class="form-control">
                     </div>
                     <div class="form-outline mb-4">
                         <label for="project_manager">Project Manager</label>
-                        <select name="project_manager" id="" class="form-control">
+                        <select name="manager_id" id="" class="form-control">
                           {% for manager in managers %}
                             <option value="{{manager.id}}">{{manager.name}}</option>
                           {% endfor %}
