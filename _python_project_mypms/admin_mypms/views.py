@@ -127,8 +127,12 @@ def check_login(request):
                 if 'logged_username' not in request.session:
                     request.session['logged_username'] = logged_user.username
                 if logged_user.department.id == 1:
+                    if 'department' not in request.session:
+                        request.session['department'] = logged_user.department.id
                     return redirect('/admin_dashboard')
                 if logged_user.department.id == 2:
+                    if 'department' not in request.session:
+                        request.session['department'] = logged_user.department.id
                     return redirect('/project_manager_dashboard')
             else:
                 errors = {'password' : "Username and Password not match!"}
