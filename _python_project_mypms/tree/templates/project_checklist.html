@@ -31,7 +31,7 @@
                 <li class="sidebar-item">
                     <a href="{% if request.session.department == 1 %} /admin_dashboard {% elif request.session.department == 2 %} /project_manager_dashboard {% endif %}" class="sidebar-link">
                         <i class="bi bi-arrow-left-square-fill"></i>
-                        <span>Back to Dashboard</span>
+                        <span>Back to Dashboard000</span>
                     </a>
                 </li>
 
@@ -95,7 +95,7 @@
 
                 <!-- Reports -->
                 <li class="sidebar-item">
-                    <a href="/tree/report" class="sidebar-link">
+                    <a href="/tree/report/{{project.id}}" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Reports</span>
                     </a>
