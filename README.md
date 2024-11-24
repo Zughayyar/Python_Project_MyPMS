@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Zughayyar/Python_Project_MyPMS">
-    <img src="README/logo.png" alt="Logo" width="80" height="80">
+    <img src="README/logo1.jpg" alt="Logo" width="512" height="384">
   </a>
 
   <h3 align="center">FirmHub</h3>
@@ -14,59 +14,58 @@
     <br />
     <a href="https://github.com/Zughayyar/Python_Project_MyPMS"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/Zughayyar/Python_Project_MyPMS">View Demo</a>
   </p>
 </div>
 
 
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+Welcome To FirmHub :
+Your gateway to professional management. We offer an innovative, all-in-one Project Management System tailored for construction and infrastructure companies, streamlining workflows and enhancing collaboration for outstanding results.
 
-<img src="README/screenshot.png" alt="Logo" width="80" height="80">
+Our platform bridges gaps in communication, collaboration and control, empowering every stakeholder to perform their best, from role assignment to quality assurance.
+
+Our Vision
+We strive to reshape the way contracting firms operate by :
+- redefining workflows for flawless project execution
+- streamlining inefficiencies
+- enhancing collaboration
+
+Why FirmHub?
+Effortless Project Management : Simplify workflows with clear, transparent tools.
+
+Seamless Collaboration : Unite teams for smarter, smoother execution.
+
+Unmatched Quality : Deliver excellence at every stage.
+
+Let's Build Better, Together.
+
+>>>> Screenshot
+<img src="README/screenshot.png" alt="Logo" width="1000" height="614">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>Javascript</li>
+  <li>Bootstrap</li>
+  <li>MySQL</li>
+  <li>Trello</li>
+  <li>Balsamiq</li>
+</ul>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- CONTACT -->
-## Contact
-
-Your Name -  Anas Zughayayr - https://github.com/Zughayyar
+## Contributors: 
+<ol>
+  <li>Anas Zughayayr - https://github.com/Zughayyar</li>
+  <li>Jalal Hemo - https://github.com/jalalman</li>
+  <li>Ameed Sawafteh - https://github.com/jalalman](https://github.com/AmeedEl)</li>
+</ol>
 
 Project Link: https://github.com/Zughayyar/Python_Project_MyPMS.git
 
