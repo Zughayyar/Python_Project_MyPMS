@@ -175,7 +175,7 @@ a.sidebar-link:hover {
     background-color: green;
     border-radius: 30px;
     display: inline-block;
-    width: 65px;
+    width: 150px;
     text-align: center;
     color: white;
 
@@ -184,7 +184,7 @@ a.sidebar-link:hover {
     background-color: red;
     border-radius: 30px;
     display: inline-block;
-    width: 75px;
+    width: 150px;
     text-align: center;
     color: white;
 }
@@ -193,7 +193,7 @@ a.sidebar-link:hover {
     background-color: rgb(233, 161, 27);
     border-radius: 30px;
     display: inline-block;
-    width: 78px;
+    width: 150px;
     text-align: center;
     color: white;
 }

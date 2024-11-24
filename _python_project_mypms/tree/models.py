@@ -76,3 +76,14 @@ def create_check_list(data):
         description = data['description'],
         checklist = "Not Approved"
     )
+
+def change_checklist_status(data):
+    checklist_count = int(data['checklist_count'])
+    first_checklist_id = int(data['first_checklist_id'])
+    for item in range(first_checklist_id, first_checklist_id + checklist_count):
+        checklist_id = int(data[f'checklist_id_{item}'])
+        checklist_status = data.get(f'checklist_status_{item}')
+        checklist = Checklist.objects.get(id=checklist_id)
+        checklist.checklist = 'Not Approved' if not checklist_status else 'Approved'
+        print(checklist.checklist, checklist_id)
+        checklist.save()
