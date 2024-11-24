@@ -97,7 +97,7 @@
                 
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="/logout" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -115,6 +115,7 @@
             <div class="main-content">
                 <h1 class="path"><i class="bi bi-folder2-open"></i> {{project.name}} <i class="bi bi-caret-right"></i> {{element.main_element}} <i class="bi bi-caret-right"></i>{{subelement.sub_element}}</h1>
             </div>
+            {% if all_tasks_approved %}
             <div class="alert alert-success d-flex align-items-center" role="alert">
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
                 <div>
@@ -122,6 +123,7 @@
                      Main Contractor Approved
                 </div>
             </div>
+            {% else %}
             <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                 <div>
@@ -129,8 +131,15 @@
                 Main Contractor Not Approved
                 </div>
             </div>
+            {% endif %}
             <table class="table align-middle mb-0 bg-white .table table-hover">
-                <form action="/" method="post">
+                <form action="/tree/change_checklist" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="checklist_count" value="{{checklist_count}}">
+                    <input type="hidden" name="first_checklist_id" value="{{first_checklist_id}}">
+                    <input type="hidden" name="project" value="{{project.id}}">
+                    <input type="hidden" name="element" value="{{element.id}}">
+                    <input type="hidden" name="subelement" value="{{subelement.id}}">
                 <thead class="bg-light">
                   <tr>
                     <th>ID</th>
@@ -153,12 +162,15 @@
                         
                         </td>
                         <td>
-                            <input type="checkbox" name="">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="checklist_status_{{item.id}}" {% if item.checklist == 'Approved' %} checked {% endif %}>
+                            </div>
                         </td>
                         <td>
-                            <span class="green">{{item.checklist}}</span>
+                            <span class="{% if item.checklist == 'Not Approved' %} orange {% else %} green {% endif %}">{{item.checklist}}</span>
                         </td>
                     </tr>
+                    <input type="hidden" name="checklist_id_{{item.id}}" value="{{item.id}}">
                     {% endfor %}
                 </tbody>
               </table>
