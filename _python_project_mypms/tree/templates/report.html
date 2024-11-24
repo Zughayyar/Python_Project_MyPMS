@@ -27,9 +27,9 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="{% if request.session.department == 1 %} /admin_dashboard {% elif request.session.department == 2 %} /project_manager_dashboard {% endif %}" class="sidebar-link">
-                        <i class="lni lni-popup"></i>
-                        <span>Back to Dashboard</span>
+                        <a href="/tree/checklist/{{project.id}}/2/1" class="sidebar-link"> 
+                        <i class="bi bi-arrow-left-square-fill"></i>
+                        <span>Back to Project</span>
                     </a>
                 </li>
             </ul>
@@ -51,9 +51,9 @@
             </div>
 
             <div class="main-content">
-                <h1 class="path"><i class="bi bi-card-checklist"></i> Reports </h1>
+                <h1 class="path"><i class="bi bi-card-checklist"></i> Report </h1>
             </div>
-                <h1 class="center">All Projects</h1>
+                <h1 class="center">Project: {{project.name}}</h1>
             <div>
 
             </div>
@@ -71,7 +71,7 @@
                       </tr>
                 </thead>
                 <tbody>
-                    {% for item in projects_tree %}
+                    {% for item in project_tree %}
                     <tr>
                       <th>{{item.id}}</th>
                       <td>{{item.project.name}}</td>

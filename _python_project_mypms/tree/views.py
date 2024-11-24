@@ -9,26 +9,26 @@ def create_tree(request):
         'projects' : models.get_all_projects(),
         'projects_tree' : models.get_project_tree()
     }
-    return render(request,"createtree.html", context)
+    return render(request,"create_tree.html", context)
 
 def add_element(request):
     if request.method == "POST":
         models.add_element(request.POST)
-        return redirect('/tree/createtree')
+        return redirect('/tree/create_tree')
     else:
         return HttpResponse("something went wrong!!")
 
 def add_sub_element(request):
     if request.method == "POST":
         models.add_sub_element(request.POST)
-        return redirect('/tree/createtree')
+        return redirect('/tree/create_tree')
     else:
         return HttpResponse("something went wrong!!")
 
 def add_project_tree(request):
     if request.method == "POST":
         models.create_check_list(request.POST)
-        return redirect('/tree/createtree')
+        return redirect('/tree/create_tree')
     else:
         return HttpResponse("something went wrong!!")
 
@@ -60,9 +60,10 @@ def project_checklist(request, project_id, element_id, subelement_id):
     else:
         return redirect('/')
 
-def report(request):
+def report(request, project_id):
     context = {
-        'projects_tree' : models.get_project_tree()
+        'project'       : models.get_project_by_id(project_id),
+        'project_tree'  : models.get_project_tree_by_project(project_id)
     }
     return render(request, "report.html", context)
 
