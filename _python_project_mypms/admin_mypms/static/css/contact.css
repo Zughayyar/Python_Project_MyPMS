@@ -1,128 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins" sans-serif;
-}
-
-.contact-con {
-    height: 100vh;
-    background-color: #d6cec7;
-}
-
-h1 {
+body {
     display: flex;
-    color: rgb(54, 10, 10);
     justify-content: center;
-    padding-top: 2%;
+    align-items: center;
+    margin-top: 150px;
+    background-color: #eee;
 }
+.main-con{
+    padding: 30px;
+    background-color: white;
+    width: 70%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 5px silver;
+  }
 
-
-.get-in-touch {
-    background-color: whitesmoke;
-    background-image: linear-gradient(to right,whitesmoke, rgb(91, 55, 55));
-    height: 70vh;
-    width: 100vh;
-    margin: 5% 0 0 30%;
-    border-radius: 10%;
-}
-
-.get-in-touch:hover {
-    box-shadow: 0px 0px 20px rgb(91, 55, 55);
-}
-
-.get-in-touch h2 {
-    color: whitesmoke;
-    font-size: xx-large;
-    font-weight: lighter;
-    padding: 6% 0 0 45%;
-}
-
-.get-in-touch p {
-    color: whitesmoke;
-    font-size: large;
-    font-weight: lighter;
-    padding: 3% 0 0 45%;
-}
-
-.contact-field {
-    background-color: #1c2f60;
-    background-image: linear-gradient(to right, #293d6d, #162751);
-    color: whitesmoke;
-    width: 25%;
-    height: 60%;
-    margin-top: -30%;
-    margin-left: 20%;
-    border-radius: 10%;
-    overflow: hidden;
-}
-
-.contact-field h3 {
-    font-size: x-large;
-    font-weight: lighter;
-    padding-top: 8%;
-    padding-left: 15%;
-}
-
-.contact-field:hover {
-    box-shadow: 0px 0px 20px #162751;
-}
-
-#mobile-icon {
-    width: 8%;
-    color: whitesmoke;
-    padding: 10% 5% 0 20%;
-}
-
-#mobile-number {
-    color: white;
-}
-
-#website-icon {
-    width: 8%;
-    padding: 5% 5% 0 20%;
-}
-
-#website {
-    color: white;
-}
-
-#email-icon {
-    width: 8%;
-    padding: 5% 5% 0 20%;
-}
-
-#firm-hub-email {
-    color: white;
-    margin-top: -5%;
-}
-
-#location-icon {
-    width: 8%;
-    padding: 5% 5% 0 20%;
-}
-
-#location {
-    display: flex;
-    color: white;
-    width: 50%;
-    padding-left: 34%;
-    margin-top: -5%;
-}
-
-#contact-info {
-    margin: 5% 0 0 50%;
-}
-
-#firstname, #lastname,
-#email, #message {
-    padding: 1% 6% 1% 1%;
-    border-radius: 5%;
-    border: 1px solid rgb(91, 55, 55);
-    box-shadow: 3px 3px rgb(91, 55, 55);
-}
-
-
-
+  .main-con img {
+    height: 500px;
+  }
