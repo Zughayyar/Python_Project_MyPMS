@@ -45,21 +45,21 @@ def project_checklist(request, project_id, element_id, subelement_id):
             if item.checklist == 'Not Approved':
                 all_tasks_approved = False
         context = {
-            'element1'      : models.get_element_by_id(1),
-            'element2'      : models.get_element_by_id(2),
-            'subelements'   : models.get_all_sub_elements(),
-            'project'       : models.get_project_by_id(project_id),
-            'element'       : models.get_element_by_id(element_id),
-            'subelement'    : models.get_sub_element_by_id(subelement_id),
-            'checklist'     : this_checklist,
+            'element1'          : models.get_element_by_id(1),
+            'element2'          : models.get_element_by_id(2),
+            'subelements'       : models.get_all_sub_elements(),
+            'project'           : models.get_project_by_id(project_id),
+            'element'           : models.get_element_by_id(element_id),
+            'subelement'        : models.get_sub_element_by_id(subelement_id),
+            'checklist'         : this_checklist,
             'all_tasks_approved': all_tasks_approved,
-            'checklist_count': checklist_count,
+            'checklist_count'   : checklist_count,
             'first_checklist_id': first_checklist_id
         }
         return render(request,'project_checklist.html', context)
     else:
         return redirect('/')
-    
+
 def report(request):
     context = {
         'projects_tree' : models.get_project_tree()

@@ -54,7 +54,18 @@ def get_project_tree_by_filter(project_id, element_id, subelement_id):
         sub_element = get_sub_element_by_id(subelement_id)
     )
 
+def get_all_checklist_by_project_id(project_id):
+    project = Project.objects.get(id=project_id)
+    return ProjectTree.objects.filter(project = project).count()
 
+def get_only_approved_by_project_id(project_id):
+    project = Project.objects.get(id=project_id)
+    checklist_project = ProjectTree.objects.filter(project=project)
+    count_approved = 0
+    for item in checklist_project:
+        if item.checklist == "Approved":
+            count_approved += 1
+    return count_approved
 
 #########################################
 ## add methods:
@@ -77,6 +88,9 @@ def create_check_list(data):
         checklist = "Not Approved"
     )
 
+#########################################
+## update methods:
+#Note: This function made by eng. omar rayyan.
 def change_checklist_status(data):
     checklist_count = int(data['checklist_count'])
     first_checklist_id = int(data['first_checklist_id'])
@@ -87,3 +101,4 @@ def change_checklist_status(data):
         checklist.checklist = 'Not Approved' if not checklist_status else 'Approved'
         print(checklist.checklist, checklist_id)
         checklist.save()
+
