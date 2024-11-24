@@ -71,6 +71,15 @@ def get_only_approved_by_project_id(project_id):
             count_approved += 1
     return count_approved
 
+def get_only_not_approved_by_project_id(project_id):
+    project = Project.objects.get(id=project_id)
+    checklist_project = ProjectTree.objects.filter(project=project)
+    count_not_approved = 0
+    for item in checklist_project:
+        if item.checklist != "Approved":
+            count_not_approved += 1
+    return count_not_approved
+
 #########################################
 ## add methods:
 def add_element(data):
