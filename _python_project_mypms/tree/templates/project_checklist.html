@@ -95,7 +95,7 @@
 
                 <!-- Reports -->
                 <li class="sidebar-item">
-                    <a href="/tree/report/{{project.id}}" class="sidebar-link">
+                    <a href="/tree/report" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Reports</span>
                     </a>
@@ -126,7 +126,7 @@
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
                 <div>
                     <i class="bi bi-check-circle-fill"></i>
-                     Main Contractor Approved
+                     {{subelement.sub_element}} Approved
                 </div>
             </div>
             {% else %}
@@ -134,7 +134,7 @@
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                 <div>
                 <i class="bi bi-x-circle-fill"></i>
-                Main Contractor Not Approved
+                {{subelement.sub_element}}  Not Approved
                 </div>
             </div>
             {% endif %}
