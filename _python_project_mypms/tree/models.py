@@ -54,6 +54,10 @@ def get_project_tree_by_filter(project_id, element_id, subelement_id):
         sub_element = get_sub_element_by_id(subelement_id)
     )
 
+def get_project_tree_by_project(project_id):
+    project = Project.objects.get(id=project_id)
+    return ProjectTree.objects.filter(project = project)
+
 def get_all_checklist_by_project_id(project_id):
     project = Project.objects.get(id=project_id)
     return ProjectTree.objects.filter(project = project).count()
