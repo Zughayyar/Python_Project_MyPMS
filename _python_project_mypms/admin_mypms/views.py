@@ -1,7 +1,9 @@
 from django.shortcuts import HttpResponse ,render, redirect
 from django.contrib import messages
+import admin_mypms.models
 from . import models
 import tree.models
+import math
 
 ### login function:
 # 1. load login page.
@@ -74,11 +76,22 @@ def view_projects(request):
 # 2. can modify checklist status
 def project_manager_dashboard(request):
     if request.session['is_logged_in'] == True:
+        projects = admin_mypms.models.get_all_projects_ordered_by_last_added()
+        projects_with_checklists = []
+        for project in projects:
+            checklists_count = tree.models.get_all_checklist_by_project_id(project.id)
+            approved_checklists = tree.models.get_only_approved_by_project_id(project.id)
+            completion_percentage = math.trunc((approved_checklists / checklists_count) * 100 if approved_checklists != 0 else 0)
+            project_data = {
+                'project': project,
+                'completion_percentage': completion_percentage
+            }
+            projects_with_checklists.append(project_data)
         context = {
-            'projects'          : models.get_all_projects_ordered_by_last_added(),
-            'elements'          : tree.models.get_all_elements(),
-            'subelements'       : tree.models.get_all_sub_elements(),
-            'projects_tree'     : tree.models.get_project_tree()
+            'projects_with_checklists' : projects_with_checklists,
+            'elements'      : tree.models.get_all_elements(),
+            'subelements'   : tree.models.get_all_sub_elements(),
+            'projects_tree' : tree.models.get_project_tree()
         }
         return render(request,'project_manager_dashboard.html', context)
     else:
@@ -110,16 +123,12 @@ def check_login(request):
         if models.is_user_exist(request.POST):
             if models.is_password_match(request.POST):
                 request.session['is_logged_in'] = True
-                logged_user = models.get_user_by_username(request.POST)              
+                logged_user = models.get_user_by_username(request.POST)
                 if 'logged_username' not in request.session:
                     request.session['logged_username'] = logged_user.username
                 if logged_user.department.id == 1:
-                    if 'department' not in request.session:
-                        request.session['department'] = logged_user.department.id
                     return redirect('/admin_dashboard')
                 if logged_user.department.id == 2:
-                    if 'department' not in request.session:
-                        request.session['department'] = logged_user.department.id
                     return redirect('/project_manager_dashboard')
             else:
                 errors = {'password' : "Username and Password not match!"}
