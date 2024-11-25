@@ -1,0 +1,23 @@
+.Username-cont{
+    width: 90%;
+
+}
+.main-page-cont{
+   
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.adduser-cont{
+    width: 20%;
+}
+
+.users-table{
+
+    width: 70%;
+    background-color: red;
+}
+*{
+    text-transform: capitalize;
+}
