@@ -58,7 +58,7 @@ def view_users(request):
 ### view projects function:
 # 1. view projects table
 # 2. include add projects form
-# 3.  dropdown input for Clinets
+# 3. dropdown input for Clinets
 # 4. dropdown input for user(Filter project managers)
 def view_projects(request):
     if request.session['is_logged_in'] == True:
