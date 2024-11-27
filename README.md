@@ -65,7 +65,6 @@ Let's Build Better, Together.
 <ol>
   <li>Anas Zughayayr - https://github.com/Zughayyar</li>
   <li>Jalal Hemo - https://github.com/jalalman</li>
-  <li>Ameed Sawafteh - https://github.com/jalalman](https://github.com/AmeedEl)</li>
 </ol>
 
 Project Link: https://github.com/Zughayyar/Python_Project_MyPMS.git
