@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@5+bwh11r_nrf(4%#b#(prg99!8%)d2-dlsc3xwdx@)ogdn_@l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['44.220.160.244', 'firmhub.site']
+ALLOWED_HOSTS = ['44.220.160.244', 'firmhub.site', '127.0.0.1']
 
 
 # Application definition
